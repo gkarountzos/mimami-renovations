@@ -2,11 +2,15 @@
 
 import { ArrowRight } from "lucide-react";
 
-import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
 import { MagneticButton } from "@/src/components/ui/magnetic-button";
+import { THeroContent } from "@/src/types/hero";
 
-export function Hero() {
+interface IHeroClientProps {
+  content: THeroContent;
+}
+
+export default function HeroClient({ content }: IHeroClientProps) {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -26,14 +30,14 @@ export function Hero() {
           {/* Main Title */}
           <AnimatedSection delay={200}>
             <h1 className="font-serif text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight text-foreground leading-[1.1]">
-              {content.hero.title}
+              {content.title}
             </h1>
           </AnimatedSection>
 
           {/* Subtitle */}
           <AnimatedSection delay={400}>
             <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-2xl leading-relaxed">
-              {content.hero.subtitle}
+              {content.subtitle}
             </p>
           </AnimatedSection>
 
@@ -42,12 +46,12 @@ export function Hero() {
             <div className="mt-12 flex flex-col sm:flex-row gap-4">
               <MagneticButton href="/contact" variant="primary">
                 <span className="flex items-center gap-2">
-                  {content.hero.cta}
+                  {content.cta}
                   <ArrowRight size={18} />
                 </span>
               </MagneticButton>
               <MagneticButton href="/services" variant="outline">
-                {content.heroHome.viewServices}
+                {content.viewServices}
               </MagneticButton>
             </div>
           </AnimatedSection>
@@ -59,7 +63,7 @@ export function Hero() {
         <AnimatedSection delay={800}>
           <div className="flex flex-col items-center gap-2 text-muted-foreground">
             <span className="text-xs tracking-widest uppercase">
-              {content.heroHome.scroll}
+              {content.scroll}
             </span>
             <div className="w-px h-12 bg-linear-to-b from-muted-foreground to-transparent" />
           </div>

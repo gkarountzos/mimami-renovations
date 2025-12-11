@@ -3,11 +3,15 @@
 import { Check, ArrowRight } from "lucide-react";
 import Link from "next/link";
 
-import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
 import { cn } from "@/lib/utils";
+import { TPricingContent } from "@/src/types/pricing";
 
-export function Pricing() {
+interface IPricingClientProps {
+  content: TPricingContent;
+}
+
+export default function PricingClient({ content }: IPricingClientProps) {
   return (
     <section className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -20,19 +24,19 @@ export function Pricing() {
           </AnimatedSection>
           <AnimatedSection delay={100}>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-              {content.pricing.title}
+              {content.title}
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={200}>
             <p className="mt-6 text-lg text-muted-foreground">
-              {content.pricing.subtitle}
+              {content.subtitle}
             </p>
           </AnimatedSection>
         </div>
 
         {/* Pricing Cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {content.pricing.packages.map((pkg, index) => (
+          {content.packages.map((pkg, index) => (
             <AnimatedSection key={pkg.name} delay={index * 150}>
               <div
                 className={cn(
@@ -44,7 +48,7 @@ export function Pricing() {
               >
                 {pkg.featured && (
                   <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-accent text-accent-foreground text-xs font-medium tracking-wide uppercase">
-                    {content.pricing.featured}
+                    {content.featured}
                   </div>
                 )}
 
@@ -104,7 +108,7 @@ export function Pricing() {
         {/* Disclaimer */}
         <AnimatedSection delay={500} className="mt-12">
           <p className="text-center text-sm text-muted-foreground">
-            {content.pricing.disclaimer}
+            {content.disclaimer}
           </p>
         </AnimatedSection>
       </div>

@@ -1,7 +1,4 @@
-import { AboutHero } from "@/src/components/sections/about/AboutHero";
-import { AboutStats } from "@/src/components/sections/about/AboutStats";
-import { AboutValues } from "@/src/components/sections/about/AboutValues";
-import { CTA } from "@/src/components/shared/Cta";
+import { AboutPageContent } from "@/src/components/sections/about/AboutPageContent";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,12 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function AboutPage() {
-  return (
-    <main>
-      <AboutHero />
-      <AboutValues />
-      <AboutStats />
-      <CTA />
-    </main>
-  );
+  return <AboutPageContent />;
 }

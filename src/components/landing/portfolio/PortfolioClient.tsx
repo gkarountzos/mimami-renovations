@@ -2,41 +2,15 @@
 
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
-import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { TPortfolioContent } from "@/src/types/portfolio";
+import { portfolioImages } from "@/src/constants/data";
 
-const portfolioImages = [
-  {
-    id: 1,
-    title: "Ανακαίνιση Μπάνιου",
-    location: "Νέα Ιωνία",
-    category: "Μπάνιο",
-    image: "/modern-bathroom-renovation-marble-tiles-luxury-des.jpg",
-  },
-  {
-    id: 2,
-    title: "Μεταμόρφωση Κουζίνας",
-    location: "Μαρούσι",
-    category: "Κουζίνα",
-    image: "/luxury-kitchen-renovation-white-cabinets-modern-ap.jpg",
-  },
-  {
-    id: 3,
-    title: "Ολική Ανακαίνιση",
-    location: "Ηράκλειο",
-    category: "Ολική Ανακαίνιση",
-    image: "/complete-apartment-renovation-modern-living-room-e.jpg",
-  },
-  {
-    id: 4,
-    title: "Σύγχρονο Μπάνιο",
-    location: "Γαλάτσι",
-    category: "Μπάνιο",
-    image: "/contemporary-bathroom-design-dark-tiles-minimalist.jpg",
-  },
-];
+interface IPortfolioClientProps {
+  content: TPortfolioContent;
+}
 
-export function Portfolio() {
+export default function PortfolioClient({ content }: IPortfolioClientProps) {
   return (
     <section className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -50,18 +24,18 @@ export function Portfolio() {
             </AnimatedSection>
             <AnimatedSection delay={100}>
               <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-                {content.portfolio.title}
+                {content.title}
               </h2>
             </AnimatedSection>
             <AnimatedSection delay={200}>
               <p className="mt-6 text-lg text-muted-foreground">
-                {content.portfolio.subtitle}
+                {content.subtitle}
               </p>
             </AnimatedSection>
           </div>
           <AnimatedSection delay={300}>
             <div className="flex flex-wrap gap-3">
-              {content.portfolio.categories.map((category) => (
+              {content.categories.map((category) => (
                 <span
                   key={category}
                   className="px-4 py-2 text-sm font-medium tracking-wide bg-secondary text-secondary-foreground"
@@ -123,7 +97,7 @@ export function Portfolio() {
         <AnimatedSection delay={600} className="mt-16 lg:mt-24">
           <div className="flex flex-wrap items-center justify-center gap-4 lg:gap-8">
             <span className="text-sm text-muted-foreground">Εξυπηρετούμε:</span>
-            {content.portfolio.areas.map((area) => (
+            {content.areas.map((area) => (
               <span key={area} className="text-sm font-medium text-foreground">
                 {area}
               </span>

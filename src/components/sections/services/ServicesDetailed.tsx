@@ -78,7 +78,7 @@ export function ServicesDetailed() {
 
                   {/* Image */}
                   <div className={`${!isEven ? "lg:order-1" : ""}`}>
-                    <div className="relative aspect-[4/3]">
+                    <div className="relative aspect-4/3">
                       <div
                         className="absolute inset-0 bg-cover bg-center"
                         style={{

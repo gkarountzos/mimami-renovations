@@ -1,28 +1,18 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Bath,
-  ChefHat,
-  Zap,
-  Droplet,
-  Grid3X3,
-  Paintbrush,
-  ArrowUpRight,
-} from "lucide-react";
-import content from "@/data/content.json";
+import { Bath, ArrowUpRight } from "lucide-react";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { iconMap } from "@/src/constants/data";
+import { TServicesContent } from "@/src/types/services";
 
-const iconMap = {
-  bath: Bath,
-  kitchen: ChefHat,
-  zap: Zap,
-  droplet: Droplet,
-  grid: Grid3X3,
-  paintbrush: Paintbrush,
-};
+interface ServicesGridClientProps {
+  content: TServicesContent;
+}
 
-export function ServicesGrid() {
+export default function ServicesGridClient({
+  content,
+}: ServicesGridClientProps) {
   return (
     <section className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -35,18 +25,18 @@ export function ServicesGrid() {
           </AnimatedSection>
           <AnimatedSection delay={100}>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground">
-              {content.services.title}
+              {content.title}
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={200}>
             <p className="mt-6 text-lg text-muted-foreground">
-              {content.services.subtitle}
+              {content.subtitle}
             </p>
           </AnimatedSection>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {content.services.items.map((service, index) => {
+          {content.items.map((service, index) => {
             const Icon = iconMap[service.icon as keyof typeof iconMap] || Bath;
             return (
               <AnimatedSection key={service.id} delay={index * 100}>

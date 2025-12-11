@@ -1,20 +1,20 @@
-import { Hero } from "@/src/components/landing/Hero";
-import { Portfolio } from "@/src/components/landing/Portfolio";
-import { Pricing } from "@/src/components/landing/Pricing";
-import { ServicesGrid } from "@/src/components/landing/ServicesGrid";
-import { Testimonials } from "@/src/components/landing/testimonials";
+import HeroSection from "@/src/components/landing/hero/HeroSection";
+import PortfolioSection from "@/src/components/landing/portfolio/PortfolioSection";
+import PricingSection from "@/src/components/landing/pricing/PricingSection";
+import ServicesGridSection from "@/src/components/landing/services-grid/ServicesGridSection";
+import TestimonialsSection from "@/src/components/landing/testimonials/TestimonialsSection";
 import { CTA } from "@/src/components/shared/Cta";
-import { Process } from "@/src/components/shared/Process";
+import ProcessSection from "@/src/components/shared/process/ProcessSection";
 
 export default function HomePage() {
   return (
     <main>
-      <Hero />
-      <ServicesGrid />
-      <Process />
-      <Portfolio />
-      <Testimonials />
-      <Pricing />
+      <HeroSection />
+      <ServicesGridSection />
+      <ProcessSection />
+      <PortfolioSection />
+      <TestimonialsSection />
+      <PricingSection />
       <CTA />
     </main>
   );
