@@ -1,4 +1,6 @@
-export const testimonialsContent = {
+import { TTestimonialsContent } from "@/src/types/testimonials";
+
+export const testimonialsContent: TTestimonialsContent = {
   title: "Τι λένε οι πελάτες μας",
   items: [
     {

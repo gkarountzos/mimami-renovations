@@ -1,3 +1,4 @@
+import { TPortfolioImage } from "@/src/types/portfolio";
 import {
   Award,
   Bath,
@@ -10,7 +11,7 @@ import {
   Zap,
 } from "lucide-react";
 
-export const portfolioImages = [
+export const portfolioImages: TPortfolioImage[] = [
   {
     id: 1,
     title: "Ανακαίνιση Μπάνιου",

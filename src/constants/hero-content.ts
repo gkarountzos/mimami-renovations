@@ -1,9 +1,10 @@
-export const heroContent = {
+import { THeroContent } from "@/src/types/hero";
+
+export const heroContent: THeroContent = {
   title: "Ολική Ανακαίνιση Διαμερισμάτων",
   subtitle:
     "Σχεδιάζουμε, οργανώνουμε και παραδίδουμε την ανακαίνιση του σπιτιού σου έτοιμη, χωρίς υπερβάσεις σε χρόνο και κόστος.",
   cta: "Ζήτησε Δωρεάν Εκτίμηση",
-  location: "Νέα Ιωνία",
   viewServices: "Δείτε τις Υπηρεσίες",
   scroll: "Scroll",
 };

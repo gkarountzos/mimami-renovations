@@ -1,4 +1,6 @@
-export const portfolioContent = {
+import { TPortfolioContent } from "@/src/types/portfolio";
+
+export const portfolioContent: TPortfolioContent = {
   title: "Τα Έργα μας",
   subtitle: "Δείτε τις μεταμορφώσεις που πετύχαμε",
   areas: ["Νέα Ιωνία", "Ηράκλειο", "Μαρούσι", "Γαλάτσι"],

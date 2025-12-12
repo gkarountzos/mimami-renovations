@@ -1,4 +1,6 @@
-export const pricingContent = {
+import { TPricingContent } from "@/src/types/pricing";
+
+export const pricingContent: TPricingContent = {
   title: "Πακέτα Τιμών",
   subtitle: "Διαφανής κοστολόγηση για κάθε ανάγκη",
   disclaimer:
