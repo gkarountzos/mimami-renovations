@@ -3,8 +3,8 @@
 import Link from "next/link";
 import { Bath, ArrowUpRight } from "lucide-react";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
-import { iconMap } from "@/src/constants/data";
 import { TServicesContent } from "@/src/types/services";
+import { servicesIconMap } from "@/src/constants/data";
 
 interface ServicesGridClientProps {
   content: TServicesContent;
@@ -20,7 +20,7 @@ export default function ServicesGridClient({
         <div className="max-w-2xl mb-16 lg:mb-24">
           <AnimatedSection>
             <span className="text-sm font-medium tracking-widest uppercase text-accent">
-              Υπηρεσίες
+              {content.heading}
             </span>
           </AnimatedSection>
           <AnimatedSection delay={100}>
@@ -36,8 +36,10 @@ export default function ServicesGridClient({
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {content.items.map((service, index) => {
-            const Icon = iconMap[service.icon as keyof typeof iconMap] || Bath;
+          {content.services.short.map((service, index) => {
+            const Icon =
+              servicesIconMap[service.icon as keyof typeof servicesIconMap] ||
+              Bath;
             return (
               <AnimatedSection key={service.id} delay={index * 100}>
                 <Link

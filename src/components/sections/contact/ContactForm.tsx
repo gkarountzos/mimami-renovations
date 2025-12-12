@@ -6,8 +6,13 @@ import { useState } from "react";
 import { Send, CheckCircle } from "lucide-react";
 import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { TContactForm } from "@/src/types/contact";
 
-export function ContactForm() {
+interface IContactFormProps {
+  content: TContactForm;
+}
+
+export function ContactForm({ content }: IContactFormProps) {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -28,10 +33,10 @@ export function ContactForm() {
         <div className="flex flex-col items-center justify-center text-center p-12 bg-secondary h-full min-h-125">
           <CheckCircle size={64} className="text-accent mb-6" />
           <h3 className="font-serif text-2xl font-bold text-foreground mb-4">
-            {content.contactForm.successTitle}
+            {content.successTitle}
           </h3>
           <p className="text-muted-foreground max-w-md">
-            {content.contactForm.successMessage}
+            {content.successMessage}
           </p>
         </div>
       </AnimatedSection>
@@ -47,7 +52,7 @@ export function ContactForm() {
               htmlFor="name"
               className="block text-sm font-medium text-foreground mb-2"
             >
-              {content.contactForm.labels.name}
+              {content.labels.name}
             </label>
             <input
               type="text"
@@ -55,7 +60,7 @@ export function ContactForm() {
               name="name"
               required
               className="w-full px-4 py-3 bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent transition-all duration-300"
-              placeholder={content.contactForm.placeholders.name}
+              placeholder={content.placeholders.name}
             />
           </div>
           <div>
@@ -63,7 +68,7 @@ export function ContactForm() {
               htmlFor="phone"
               className="block text-sm font-medium text-foreground mb-2"
             >
-              {content.contactForm.labels.phone}
+              {content.labels.phone}
             </label>
             <input
               type="tel"
@@ -71,7 +76,7 @@ export function ContactForm() {
               name="phone"
               required
               className="w-full px-4 py-3 bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent transition-all duration-300"
-              placeholder={content.contactForm.placeholders.phone}
+              placeholder={content.placeholders.phone}
             />
           </div>
         </div>
@@ -81,14 +86,14 @@ export function ContactForm() {
             htmlFor="email"
             className="block text-sm font-medium text-foreground mb-2"
           >
-            {content.contactForm.labels.email}
+            {content.labels.email}
           </label>
           <input
             type="email"
             id="email"
             name="email"
             className="w-full px-4 py-3 bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent transition-all duration-300"
-            placeholder={content.contactForm.placeholders.email}
+            placeholder={content.placeholders.email}
           />
         </div>
 
@@ -97,15 +102,15 @@ export function ContactForm() {
             htmlFor="service"
             className="block text-sm font-medium text-foreground mb-2"
           >
-            {content.contactForm.labels.service}
+            {content.labels.service}
           </label>
           <select
             id="service"
             name="service"
             className="w-full px-4 py-3 bg-secondary border-0 text-foreground focus:ring-2 focus:ring-accent transition-all duration-300"
           >
-            <option value="">{content.contactForm.placeholders.service}</option>
-            {content.contactForm.serviceOptions.map((option) => (
+            <option value="">{content.placeholders.service}</option>
+            {content.serviceOptions.map((option) => (
               <option key={option.value} value={option.value}>
                 {option.label}
               </option>
@@ -118,7 +123,7 @@ export function ContactForm() {
             htmlFor="message"
             className="block text-sm font-medium text-foreground mb-2"
           >
-            {content.contactForm.labels.message}
+            {content.labels.message}
           </label>
           <textarea
             id="message"
@@ -126,7 +131,7 @@ export function ContactForm() {
             required
             rows={6}
             className="w-full px-4 py-3 bg-secondary border-0 text-foreground placeholder:text-muted-foreground focus:ring-2 focus:ring-accent transition-all duration-300 resize-none"
-            placeholder={content.contactForm.placeholders.message}
+            placeholder={content.placeholders.message}
           />
         </div>
 
@@ -136,10 +141,10 @@ export function ContactForm() {
           className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 text-sm font-medium tracking-wide uppercase bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? (
-            <span>{content.contactForm.submitting}</span>
+            <span>{content.submitting}</span>
           ) : (
             <>
-              <span>{content.contactForm.submitButton}</span>
+              <span>{content.submitButton}</span>
               <Send size={18} />
             </>
           )}

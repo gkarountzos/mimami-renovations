@@ -1,9 +1,13 @@
 "use client";
 
-import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { TServicesContent } from "@/src/types/services";
 
-export function ServicesHero() {
+interface IServicesHeroProps {
+  content: TServicesContent;
+}
+
+export function ServicesHero({ content }: IServicesHeroProps) {
   return (
     <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
       {/* Background Image */}
@@ -21,17 +25,17 @@ export function ServicesHero() {
         <div className="max-w-2xl">
           <AnimatedSection>
             <span className="text-sm font-medium tracking-widest uppercase text-accent">
-              Υπηρεσίες
+              {content.heading}
             </span>
           </AnimatedSection>
           <AnimatedSection delay={100}>
             <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-              {content.services.title}
+              {content.title}
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={200}>
             <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-              {content.services.subtitle}
+              {content.subtitle}
             </p>
           </AnimatedSection>
         </div>

@@ -1,9 +1,15 @@
 "use client";
 
-import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { TAboutContent } from "@/src/types/about";
+import { TBrandContent } from "@/src/types/brand";
 
-export function AboutHero() {
+interface IAboutHeroProps {
+  content: TAboutContent;
+  brandName: TBrandContent["name"];
+}
+
+export function AboutHero({ content, brandName }: IAboutHeroProps) {
   return (
     <section className="relative pt-32 pb-24 lg:pt-40 lg:pb-32 overflow-hidden">
       {/* Background */}
@@ -15,24 +21,24 @@ export function AboutHero() {
           <div>
             <AnimatedSection>
               <span className="text-sm font-medium tracking-widest uppercase text-accent">
-                {content.about.subtitle}
+                {content.subtitle}
               </span>
             </AnimatedSection>
             <AnimatedSection delay={100}>
               <h1 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.1]">
-                {content.about.title}
+                {content.title}
               </h1>
             </AnimatedSection>
             <AnimatedSection delay={200}>
               <p className="mt-8 text-lg text-muted-foreground leading-relaxed">
-                {content.about.description}
+                {content.description}
               </p>
             </AnimatedSection>
             <AnimatedSection delay={300}>
               <div className="mt-8 flex items-center gap-6">
                 <div className="w-16 h-px bg-accent" />
                 <span className="text-sm font-medium tracking-wide uppercase text-accent">
-                  {content.brand.fullName}
+                  {brandName}
                 </span>
               </div>
             </AnimatedSection>

@@ -1,37 +1,32 @@
 "use client";
 
-import {
-  Bath,
-  ChefHat,
-  Zap,
-  Droplet,
-  Grid3X3,
-  Paintbrush,
-  Check,
-} from "lucide-react";
-import content from "@/data/content.json";
+import { Bath, Check } from "lucide-react";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
 import { MagneticButton } from "@/src/components/ui/magnetic-button";
+import { servicesIconMap } from "@/src/constants/data";
+import { TServicesContent } from "@/src/types/services";
+import { TCTA } from "@/src/types/cta";
 
-const iconMap = {
-  bath: Bath,
-  kitchen: ChefHat,
-  zap: Zap,
-  droplet: Droplet,
-  grid: Grid3X3,
-  paintbrush: Paintbrush,
-};
+interface IServicesDetailedProps {
+  content: TServicesContent;
+  ctaRequestQuote: TCTA["requestQuote"];
+}
 
-export function ServicesDetailed() {
+export function ServicesDetailed({
+  content,
+  ctaRequestQuote,
+}: IServicesDetailedProps) {
   return (
     <section className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="space-y-16 lg:space-y-24">
-          {content.services.items.map((service, index) => {
-            const Icon = iconMap[service.icon as keyof typeof iconMap] || Bath;
+          {content.services.short.map((service, index) => {
+            const Icon =
+              servicesIconMap[service.icon as keyof typeof servicesIconMap] ||
+              Bath;
             const details =
-              content.servicesDetails[
-                service.id as keyof typeof content.servicesDetails
+              content.services.detailed?.[
+                service.id as keyof typeof content.services.detailed
               ] || [];
             const isEven = index % 2 === 0;
 
@@ -72,7 +67,7 @@ export function ServicesDetailed() {
                     </ul>
 
                     <MagneticButton href="/contact" variant="primary">
-                      Ζήτησε Προσφορά
+                      {ctaRequestQuote}
                     </MagneticButton>
                   </div>
 

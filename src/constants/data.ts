@@ -1,4 +1,14 @@
-import { Bath, ChefHat, Droplet, Grid3X3, Paintbrush, Zap } from "lucide-react";
+import {
+  Award,
+  Bath,
+  ChefHat,
+  Clock,
+  Droplet,
+  Grid3X3,
+  Paintbrush,
+  Shield,
+  Zap,
+} from "lucide-react";
 
 export const portfolioImages = [
   {
@@ -31,11 +41,17 @@ export const portfolioImages = [
   },
 ];
 
-export const iconMap = {
+export const servicesIconMap = {
   bath: Bath,
   kitchen: ChefHat,
   zap: Zap,
   droplet: Droplet,
   grid: Grid3X3,
   paintbrush: Paintbrush,
+};
+
+export const aboutIconMap = {
+  Διαφάνεια: Shield,
+  Ποιότητα: Award,
+  Αξιοπιστία: Clock,
 };

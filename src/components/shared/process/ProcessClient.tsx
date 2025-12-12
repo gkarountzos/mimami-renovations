@@ -1,26 +1,13 @@
 "use client";
 
 import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { TProcessContent } from "@/src/types/process";
 
-interface ProcessStep {
-  number: string;
-  title: string;
-  description: string;
-  highlight: string | null;
+interface IProcessClientProps {
+  content: TProcessContent;
 }
 
-interface ProcessContent {
-  title: string;
-  subtitle: string;
-  steps: ProcessStep[];
-  promise: string;
-}
-
-interface ProcessClientProps {
-  content: ProcessContent;
-}
-
-export default function ProcessClient({ content }: ProcessClientProps) {
+export default function ProcessClient({ content }: IProcessClientProps) {
   return (
     <section className="py-24 lg:py-32 bg-secondary">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">

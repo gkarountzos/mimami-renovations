@@ -5,8 +5,16 @@ export type TServiceItem = {
   icon: string;
 };
 
+export type TServiceItemDetailed = { [key: string]: string[] };
+
+export type TService = {
+  short: TServiceItem[];
+  detailed?: TServiceItemDetailed;
+};
+
 export type TServicesContent = {
+  heading: string;
   title: string;
   subtitle: string;
-  items: TServiceItem[];
+  services: TService;
 };

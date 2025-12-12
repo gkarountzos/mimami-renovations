@@ -5,6 +5,7 @@ import ServicesGridSection from "@/src/components/landing/services-grid/Services
 import TestimonialsSection from "@/src/components/landing/testimonials/TestimonialsSection";
 import { CTA } from "@/src/components/shared/Cta";
 import ProcessSection from "@/src/components/shared/process/ProcessSection";
+import { ctaContent } from "@/src/constants/content";
 
 export default function HomePage() {
   return (
@@ -15,7 +16,7 @@ export default function HomePage() {
       <PortfolioSection />
       <TestimonialsSection />
       <PricingSection />
-      <CTA />
+      <CTA content={ctaContent} />
     </main>
   );
 }

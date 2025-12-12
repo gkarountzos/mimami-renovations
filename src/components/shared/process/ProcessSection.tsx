@@ -1,4 +1,4 @@
-import { processContent } from "@/src/constants/content";
+import { processContent } from "@/src/constants/process-content";
 import ProcessClient from "./ProcessClient";
 
 export default function ProcessSection() {

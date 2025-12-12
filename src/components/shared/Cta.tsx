@@ -2,11 +2,15 @@
 
 import { ArrowRight } from "lucide-react";
 
-import content from "@/data/content.json";
 import { AnimatedSection } from "@/src/components/ui/animated-section";
 import { MagneticButton } from "@/src/components/ui/magnetic-button";
+import { TCTA } from "@/src/types/cta";
 
-export function CTA() {
+interface ICTAProps {
+  content: TCTA;
+}
+
+export function CTA({ content }: ICTAProps) {
   return (
     <section className="py-24 lg:py-32 bg-background">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
@@ -15,10 +19,10 @@ export function CTA() {
             <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
               <div className="text-center lg:text-left">
                 <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-bold text-primary-foreground mb-4">
-                  {content.cta.title}
+                  {content.title}
                 </h2>
                 <p className="text-lg text-primary-foreground/70 max-w-xl">
-                  {content.cta.subtitle}
+                  {content.subtitle}
                 </p>
               </div>
               <MagneticButton
@@ -27,7 +31,7 @@ export function CTA() {
                 className="shrink-0"
               >
                 <span className="flex items-center gap-2">
-                  {content.navigation.cta}
+                  {content.cta}
                   <ArrowRight size={18} />
                 </span>
               </MagneticButton>

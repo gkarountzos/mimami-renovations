@@ -1,17 +1,21 @@
 "use client";
 
 import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import content from "@/data/content.json";
-import { AnimatedSection } from "@/src/components/ui/animated-section";
 
-export function ContactInfo() {
+import { AnimatedSection } from "@/src/components/ui/animated-section";
+import { TContactInfo } from "@/src/types/contact";
+
+interface IContactInfoProps {
+  content: TContactInfo;
+}
+export function ContactInfo({ content }: IContactInfoProps) {
   return (
     <AnimatedSection delay={200}>
       <div className="h-full flex flex-col">
         {/* Contact Details */}
         <div className="space-y-8 mb-12">
           <h3 className="font-serif text-2xl font-bold text-foreground">
-            {content.contactInfo.contactDetails}
+            {content.contactDetails}
           </h3>
 
           <div className="space-y-6">
@@ -20,12 +24,8 @@ export function ContactInfo() {
                 <MapPin size={20} className="text-accent" />
               </div>
               <div>
-                <p className="font-medium text-foreground">
-                  {content.contactInfo.address}
-                </p>
-                <p className="text-muted-foreground mt-1">
-                  {content.contact.address}
-                </p>
+                <p className="font-medium text-foreground">{content.address}</p>
+                <p className="text-muted-foreground mt-1">{content.address}</p>
               </div>
             </div>
 
@@ -34,14 +34,12 @@ export function ContactInfo() {
                 <Phone size={20} className="text-accent" />
               </div>
               <div>
-                <p className="font-medium text-foreground">
-                  {content.contactInfo.phone}
-                </p>
+                <p className="font-medium text-foreground">{content.phone}</p>
                 <a
-                  href={`tel:${content.contact.phone}`}
+                  href={`tel:${content.phone}`}
                   className="text-muted-foreground mt-1 hover:text-accent transition-colors duration-300"
                 >
-                  {content.contact.phone}
+                  {content.phone}
                 </a>
               </div>
             </div>
@@ -51,14 +49,12 @@ export function ContactInfo() {
                 <Mail size={20} className="text-accent" />
               </div>
               <div>
-                <p className="font-medium text-foreground">
-                  {content.contactInfo.email}
-                </p>
+                <p className="font-medium text-foreground">{content.email}</p>
                 <a
-                  href={`mailto:${content.contact.email}`}
+                  href={`mailto:${content.email}`}
                   className="text-muted-foreground mt-1 hover:text-accent transition-colors duration-300"
                 >
-                  {content.contact.email}
+                  {content.email}
                 </a>
               </div>
             </div>
@@ -68,12 +64,8 @@ export function ContactInfo() {
                 <Clock size={20} className="text-accent" />
               </div>
               <div>
-                <p className="font-medium text-foreground">
-                  {content.contactInfo.hours}
-                </p>
-                <p className="text-muted-foreground mt-1">
-                  {content.contact.hours}
-                </p>
+                <p className="font-medium text-foreground">{content.hours}</p>
+                <p className="text-muted-foreground mt-1">{content.hours}</p>
               </div>
             </div>
           </div>

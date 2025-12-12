@@ -1,4 +1,4 @@
-import { pricingContent } from "@/src/constants/content";
+import { pricingContent } from "@/src/constants/pricing-content";
 import PricingClient from "./PricingClient";
 
 export default function PricingSection() {
