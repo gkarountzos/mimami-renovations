@@ -6,6 +6,7 @@ export type TProcessStep = {
 };
 
 export type TProcessContent = {
+  heading: string;
   title: string;
   subtitle: string;
   steps: TProcessStep[];

@@ -1,6 +1,7 @@
 import { TProcessContent } from "@/src/types/process";
 
 export const processContent: TProcessContent = {
+  heading: "Διαδικασία",
   title: "Πώς Δουλεύουμε",
   subtitle: "Μια απλή διαδικασία για εξαιρετικά αποτελέσματα",
   steps: [

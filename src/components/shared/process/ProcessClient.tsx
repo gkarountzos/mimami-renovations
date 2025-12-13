@@ -15,7 +15,7 @@ export default function ProcessClient({ content }: IProcessClientProps) {
         <div className="max-w-2xl mb-16 lg:mb-24">
           <AnimatedSection>
             <span className="text-sm font-medium tracking-widest uppercase text-accent">
-              Διαδικασία
+              {content.heading}
             </span>
           </AnimatedSection>
           <AnimatedSection delay={100}>
